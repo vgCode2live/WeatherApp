@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import Card from '@material-ui/core/Card';
+import Divider from '@material-ui/core/Divider';
 import CardContent from '@material-ui/core/CardContent';
 import Weather from '../model/Weather';
 
@@ -42,10 +43,14 @@ export const CurrentWeather = (props) => {
             {!isLoading &&
                 <Card raised>
                     <CardContent>
-                        <p>Location: {weatherData.location || weatherData.error}</p>
-                        <p>Temperature: {weatherData.temperature || weatherData.error}</p>
-                        <p>Feels: {weatherData.feelLikeTemp || weatherData.error}</p>
-                        <p>Condition: {weatherData.weatherCondition || weatherData.error}</p>
+                        <p><strong>Location: </strong>{weatherData.location || weatherData.error}</p>
+                        <Divider light />
+                        <p><strong>Temperature:</strong> {weatherData.temperature || weatherData.error}</p>
+                        <Divider light />
+                        <p><strong>Feels: </strong>{weatherData.feelLikeTemp || weatherData.error}</p>
+                        <Divider light />
+                        <p><strong>Condition:</strong> {weatherData.weatherCondition || weatherData.error}</p>
+                        <Divider light />
                         <p><img src={weatherData.iconImage}></img></p>
                     </CardContent>
 
